@@ -1,10 +1,7 @@
 package br.com.allangf.ToDoWithUsersAPI.domain.entity;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 
 import javax.persistence.*;
 import java.util.List;
@@ -15,11 +12,12 @@ import java.util.List;
 @AllArgsConstructor
 @Getter
 @Setter
+@Builder
 public class User {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private int idUser;
+    private int userId;
 
     @Column(name = "name")
     private String name;

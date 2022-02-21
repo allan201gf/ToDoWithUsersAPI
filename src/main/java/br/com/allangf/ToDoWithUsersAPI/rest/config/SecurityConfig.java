@@ -1,10 +1,12 @@
 package br.com.allangf.ToDoWithUsersAPI.rest.config;
 
+import br.com.allangf.ToDoWithUsersAPI.domain.enums.Roles;
 import br.com.allangf.ToDoWithUsersAPI.rest.config.jwt.JwtAuthFilter;
 import br.com.allangf.ToDoWithUsersAPI.rest.config.jwt.JwtService;
 import br.com.allangf.ToDoWithUsersAPI.rest.service.impl.UserDetailsServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
+import org.springframework.http.HttpMethod;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
@@ -44,6 +46,14 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
         http
                 .csrf().disable()
                 .authorizeRequests()
+
+                // created user and delete user
+                .antMatchers(HttpMethod.POST, "/api/user/v1", "/api/user/v1/login")
+                .permitAll()
+                .antMatchers(HttpMethod.DELETE, "/api/user/**")
+                .hasAnyRole(Roles.USER.toString())
+                .antMatchers(HttpMethod.GET, "/api/user/v1/getloggeduser")
+                .hasAnyRole(Roles.USER.toString())
 
                 // Swagger and h2
                 .antMatchers("/v2/api-docs",
