@@ -1,6 +1,6 @@
 package br.com.allangf.ToDoWithUsersAPI.rest.config;
 
-import br.com.allangf.ToDoWithUsersAPI.domain.enums.Roles;
+import br.com.allangf.ToDoWithUsersAPI.domain.enums.RolesEnum;
 import br.com.allangf.ToDoWithUsersAPI.rest.config.jwt.JwtAuthFilter;
 import br.com.allangf.ToDoWithUsersAPI.rest.config.jwt.JwtService;
 import br.com.allangf.ToDoWithUsersAPI.rest.service.impl.UserDetailsServiceImpl;
@@ -51,9 +51,13 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .antMatchers(HttpMethod.POST, "/api/user/v1", "/api/user/v1/login")
                 .permitAll()
                 .antMatchers(HttpMethod.DELETE, "/api/user/**")
-                .hasAnyRole(Roles.USER.toString())
+                .hasAnyRole(RolesEnum.USER.toString())
                 .antMatchers(HttpMethod.GET, "/api/user/v1/getloggeduser")
-                .hasAnyRole(Roles.USER.toString())
+                .hasAnyRole(RolesEnum.USER.toString())
+
+                // to-do
+                .antMatchers("/api/todo/**")
+                .hasAnyRole(RolesEnum.USER.toString())
 
                 // Swagger and h2
                 .antMatchers("/v2/api-docs",

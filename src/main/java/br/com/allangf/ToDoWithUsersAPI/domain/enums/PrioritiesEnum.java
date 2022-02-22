@@ -1,7 +1,7 @@
 package br.com.allangf.ToDoWithUsersAPI.domain.enums;
 
-public enum StatusToDo {
+public enum PrioritiesEnum {
 
-    PENDENTE, CONCLUIDO
+    HIGH, MEDIUM, LOW
 
 }

@@ -1,6 +1,7 @@
 package br.com.allangf.ToDoWithUsersAPI.domain.entity;
 
-import br.com.allangf.ToDoWithUsersAPI.domain.enums.StatusToDo;
+import br.com.allangf.ToDoWithUsersAPI.domain.enums.PrioritiesEnum;
+import br.com.allangf.ToDoWithUsersAPI.domain.enums.StatusEnum;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -20,11 +21,11 @@ public class ToDo {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private int idToDo;
 
-    private String name;
-
     private String description;
 
-    private StatusToDo status;
+    private String status;
+
+    private String priority;
 
     @ManyToOne
     @JoinColumn(name = "user_id_user")

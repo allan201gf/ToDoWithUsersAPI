@@ -5,7 +5,7 @@ import br.com.allangf.ToDoWithUsersAPI.domain.exception.PasswordInvalidOfExcepti
 import br.com.allangf.ToDoWithUsersAPI.domain.exception.RuleOfException;
 import br.com.allangf.ToDoWithUsersAPI.domain.repository.UserRepository;
 import br.com.allangf.ToDoWithUsersAPI.rest.Errors;
-import br.com.allangf.ToDoWithUsersAPI.domain.enums.Roles;
+import br.com.allangf.ToDoWithUsersAPI.domain.enums.RolesEnum;
 import br.com.allangf.ToDoWithUsersAPI.rest.config.jwt.JwtService;
 import br.com.allangf.ToDoWithUsersAPI.rest.dto.CredentialsDTO;
 import br.com.allangf.ToDoWithUsersAPI.rest.dto.TokenDTO;
@@ -45,7 +45,7 @@ public class UserServiceImpl implements UserService {
         User user = new User();
         user.setEmail(userDTO.getEmail());
         user.setPassword(passwordEncoder.encode(userDTO.getPassword()));
-        user.setRole(Roles.USER.toString());
+        user.setRole(RolesEnum.USER.toString());
         user.setName(userDTO.getName());
 
         return userRepository.save(user);

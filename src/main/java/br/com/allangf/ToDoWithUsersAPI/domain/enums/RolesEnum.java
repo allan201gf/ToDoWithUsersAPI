@@ -1,6 +1,6 @@
 package br.com.allangf.ToDoWithUsersAPI.domain.enums;
 
-public enum Roles {
+public enum RolesEnum {
 
     USER
 
