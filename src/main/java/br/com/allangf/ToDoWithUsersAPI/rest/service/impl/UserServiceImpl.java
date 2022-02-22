@@ -1,11 +1,11 @@
 package br.com.allangf.ToDoWithUsersAPI.rest.service.impl;
 
 import br.com.allangf.ToDoWithUsersAPI.domain.entity.User;
+import br.com.allangf.ToDoWithUsersAPI.domain.enums.RolesEnum;
 import br.com.allangf.ToDoWithUsersAPI.domain.exception.PasswordInvalidOfException;
 import br.com.allangf.ToDoWithUsersAPI.domain.exception.RuleOfException;
 import br.com.allangf.ToDoWithUsersAPI.domain.repository.UserRepository;
 import br.com.allangf.ToDoWithUsersAPI.rest.Errors;
-import br.com.allangf.ToDoWithUsersAPI.domain.enums.RolesEnum;
 import br.com.allangf.ToDoWithUsersAPI.rest.config.jwt.JwtService;
 import br.com.allangf.ToDoWithUsersAPI.rest.dto.CredentialsDTO;
 import br.com.allangf.ToDoWithUsersAPI.rest.dto.TokenDTO;
